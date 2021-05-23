@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Time</string>
+    <string name="facebook_app_id">153485260082292</string>
+    <string name="fb_login_protocol_scheme">fb153485260082292</string>
+
+</resources>
