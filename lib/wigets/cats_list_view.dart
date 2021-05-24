@@ -4,7 +4,6 @@ import 'package:the_cat_api_paramonov/bloc/cat_bloc.dart';
 import 'package:the_cat_api_paramonov/bloc/cat_bloc_event.dart';
 import 'package:the_cat_api_paramonov/bloc/cat_bloc_state.dart';
 import 'package:the_cat_api_paramonov/pages/detail_page.dart';
-import 'package:the_cat_api_paramonov/services/cat_api_provider.dart';
 
 class CatsListView extends StatelessWidget {
   @override

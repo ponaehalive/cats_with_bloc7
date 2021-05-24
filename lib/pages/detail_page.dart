@@ -15,21 +15,27 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Detail Page')),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  child: Image.network('${widget.value.caturl}'),
-                  padding: EdgeInsets.only(bottom: 18.0),
-                ),
-                Text(
-                  '${widget.value.catqfact}',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
-                ),
-              ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            child: Center(
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    child: Image.network('${widget.value.caturl}'),
+                    padding: EdgeInsets.only(bottom: 10.0),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: Text(
+                      '${widget.value.catfact}',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 15.0),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

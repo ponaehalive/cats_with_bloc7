@@ -4,12 +4,12 @@ import 'dart:async';
 
 class CatsModel {
   final String caturl;
-  final String catqfact;
+  final String catfact;
 
-  CatsModel({this.caturl, this.catqfact});
+  CatsModel({this.caturl, this.catfact});
 
   factory CatsModel.fromJson(Map<String, dynamic> jsonData) {
-    return CatsModel(caturl: jsonData['url'], catqfact: jsonData['fact']);
+    return CatsModel(caturl: jsonData['url'], catfact: jsonData['fact']);
   }
 }
 
@@ -27,7 +27,7 @@ Future<List<CatsModel>> getCatData() async {
 
     List<CatsModel> cats = [];
     for (int i = 0; i < images.length; i++) {
-      cats.add(CatsModel(caturl: images[i]['url'], catqfact: facts[i]['fact']));
+      cats.add(CatsModel(caturl: images[i]['url'], catfact: facts[i]['fact']));
     }
     return cats;
   } else

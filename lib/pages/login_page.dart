@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:the_cat_api_paramonov/services/auth.dart';
+import 'package:the_cat_api_paramonov/services/auth_provider.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key key, @required this.auth}) : super(key: key);
-  final AuthBase auth;
-
-  Future<void> _signInAnonymously() async {
+  Future<void> _signInAnonymously(BuildContext context) async {
     try {
+      final auth = AuthProvider.of(context);
       await auth.signInAnonymously();
     } catch (e) {
       print(e.toString());
     }
   }
 
-  Future<void> _signInWithGoogle() async {
+  Future<void> _signInWithGoogle(BuildContext context) async {
     try {
+      final auth = AuthProvider.of(context);
       await auth.signInWithGoogle();
     } catch (e) {
       print(e.toString());
     }
   }
 
-  Future<void> _signInWithFacebook() async {
+  Future<void> _signInWithFacebook(BuildContext context) async {
     try {
+      final auth = AuthProvider.of(context);
       await auth.signInWithFacebook();
     } catch (e) {
       print(e.toString());
@@ -64,7 +65,7 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   FloatingActionButton(
-                    onPressed: _signInWithFacebook,
+                    onPressed: () => _signInWithFacebook(context),
                     backgroundColor: Colors.white,
                     child: Image(
                       image: AssetImage('images/fb_cat.png'),
@@ -72,7 +73,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(width: 50),
                   FloatingActionButton(
-                    onPressed: _signInWithGoogle,
+                    onPressed: () => _signInWithGoogle(context),
                     backgroundColor: Colors.white,
                     child: Image(
                       image: AssetImage('images/google_cat.png'),
@@ -81,7 +82,7 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
               TextButton(
-                onPressed: _signInAnonymously,
+                onPressed: () => _signInAnonymously(context),
                 child: Text('anonymous'),
               ),
             ],

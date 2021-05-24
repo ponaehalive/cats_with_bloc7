@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:the_cat_api_paramonov/services/auth.dart';
+import 'package:the_cat_api_paramonov/services/auth_provider.dart';
 
 class UserProfile extends StatelessWidget {
-  const UserProfile({Key key, @required this.auth}) : super(key: key);
-  final AuthBase auth;
-
-  Future<void> _signOut() async {
+  Future<void> _signOut(BuildContext context) async {
     try {
+      final auth = AuthProvider.of(context);
       await auth.signOut();
     } catch (e) {
       print(e.toString());
@@ -17,13 +15,13 @@ class UserProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('UP'),
+        title: Text('Account Page'),
       ),
       body: Center(
         child: TextButton(
           child: Text('looogout'),
           onPressed: () {
-            _signOut();
+            _signOut(context);
           },
         ),
       ),
