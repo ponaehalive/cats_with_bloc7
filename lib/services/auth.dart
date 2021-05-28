@@ -66,6 +66,7 @@ class Auth implements AuthBase {
         final userCredential = await _firebaseAuth.signInWithCredential(
           FacebookAuthProvider.credential(accessToken.token),
         );
+
         return userCredential.user;
       case FacebookLoginStatus.cancel:
         throw FirebaseAuthException(

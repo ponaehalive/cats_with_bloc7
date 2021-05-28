@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:the_cat_api_paramonov/pages/bottom_navigation.dart';
 import 'package:the_cat_api_paramonov/pages/cats_list_page.dart';
+import 'package:the_cat_api_paramonov/pages/favorites_page.dart';
 import 'package:the_cat_api_paramonov/wigets/cupertino_home_scaffold.dart';
-import 'package:the_cat_api_paramonov/services/auth.dart';
 
 import 'user_profile_page.dart';
 
@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   Map<TabItem, WidgetBuilder> get widgetBuilders {
     return {
       TabItem.first: (_) => CatsListPage(),
-      TabItem.favorites: (_) => Container(),
+      TabItem.favorites: (_) => Favorites(),
       TabItem.profile: (_) => UserProfile(),
     };
   }

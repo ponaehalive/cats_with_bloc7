@@ -12,6 +12,7 @@ class CatBloc extends Bloc<CatBlocEvent, CatBlocState> {
   Stream<CatBlocState> mapEventToState(CatBlocEvent event) async* {
     if (event is CatBlocLoadEvent) {
       yield CatBlocLoadingState();
+
       try {
         final List<CatsModel> _loadedCatList =
             await catsRepository.getAllCats();
@@ -20,5 +21,6 @@ class CatBloc extends Bloc<CatBlocEvent, CatBlocState> {
         yield CatBlocEmptyState();
       }
     }
+    // else if (event is UpdateFavoriteCatsEvent) yield* _updateFavoritesCats(event);
   }
 }

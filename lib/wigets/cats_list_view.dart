@@ -4,6 +4,7 @@ import 'package:the_cat_api_paramonov/bloc/cat_bloc.dart';
 import 'package:the_cat_api_paramonov/bloc/cat_bloc_event.dart';
 import 'package:the_cat_api_paramonov/bloc/cat_bloc_state.dart';
 import 'package:the_cat_api_paramonov/pages/detail_page.dart';
+import 'package:favorite_button/favorite_button.dart';
 
 class CatsListView extends StatelessWidget {
   @override
@@ -31,7 +32,6 @@ class CatsListView extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
-                      trailing: Icon(Icons.favorite_border),
                       title: Card(
                         elevation: 5.0,
                         child: Container(
@@ -42,11 +42,22 @@ class CatsListView extends StatelessWidget {
                                     state.loadedCat[currentIndex].caturl),
                                 padding: EdgeInsets.only(bottom: 8.0),
                               ),
+                              Container(
+                                alignment: Alignment.bottomRight,
+                                child: FavoriteButton(
+                                  isFavorite: false,
+                                  // iconDisabledColor: Colors.white,
+                                  valueChanged: (_isFavorite) {
+                                    print('Is Favorite : $_isFavorite');
+                                  },
+                                ),
+                              ),
                             ],
                           ),
                         ),
                       ),
                       onTap: () {
+                        print(state.loadedCat[currentIndex].caturl);
                         var route = MaterialPageRoute(
                           builder: (BuildContext context) =>
                               DetailPage(value: state.loadedCat[currentIndex]),

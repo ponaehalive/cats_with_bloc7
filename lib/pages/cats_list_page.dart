@@ -15,7 +15,7 @@ class CatsListPage extends StatelessWidget {
       create: (context) => CatBloc(catsRepository),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('First Page'),
+          title: Center(child: Text('Cats')),
         ),
         body: Center(
           child: CatsListView(),

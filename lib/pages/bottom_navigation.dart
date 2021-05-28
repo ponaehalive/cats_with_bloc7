@@ -7,8 +7,8 @@ class TabItemData {
   final String title;
   final IconData icon;
   static const Map<TabItem, TabItemData> allTabs = {
-    TabItem.first: TabItemData(title: 'first', icon: Icons.article),
-    TabItem.favorites: TabItemData(title: 'favorites', icon: Icons.favorite),
-    TabItem.profile: TabItemData(title: 'profile', icon: Icons.person),
+    TabItem.first: TabItemData(title: 'Cats', icon: Icons.visibility_outlined),
+    TabItem.favorites: TabItemData(title: 'Favorites', icon: Icons.favorite),
+    TabItem.profile: TabItemData(title: 'Profile', icon: Icons.person),
   };
 }

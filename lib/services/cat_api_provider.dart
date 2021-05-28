@@ -4,6 +4,7 @@ import 'dart:async';
 
 class CatsModel {
   final String caturl;
+  final favorites = Set<String>();
   final String catfact;
 
   CatsModel({this.caturl, this.catfact});
